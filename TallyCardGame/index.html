@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOMBOLA - Tally Card Bingo</title>
+    <script src="script.js" language="javascript"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <table width="100%" border="0">
+        <tr>
+            <td width="60%">
+                <h1 align="center">TOMBOLA</h1>
+                <img src="bingoimg.jpg" alt="bingo-slika" width="200px" height="200px">
+                <p class="navodila"><span class="naslov">Navodila za igro: </span><br>
+                    Igralec si izbere eno izmed igralnih kartic na desni, racunalnik pa nakljucno eno izmed preostalih. Nato racunalinik generira nakljucna stevila in oznacuje mesta, katerih stevila so bila generirana. Enako naredi igralec. Ko ima racunalnik ali igralec oznacena vsa stevila v eni vrstici, klikne gumb BINGO - zmaga. Goljufanje uporabnika preverja racunalink pred potrditvijo zmage. Novo igro pozene igralec s skliom na gumb "Nova Igra".</p>
+                <p class="navodila">
+                    Izberi stevilo vrstic na igralni kartici: <select name="" id="VelikostPloscadi" onchange="OmogociIgro()" >
+                        <option value="0" selected>---Izberi Velikost---</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </p>
+                <p class="navodila"><input type="button" id="NovaIgra" disabled="true" onclick="PozeniIgro()" value="Nova igra" class="buttons">
+                    <button id="muteButton" onclick="toggleMute()" class="buttons"><i id="muteIcon" class="fas fa-microphone"></i></button>
+                </p>
+                <p class="navodila">
+                    Čas igranja: <span id="CasIgranja"></span> <br>
+                    Trenutno Stevilo: <span id="randomStevilo"></span>
+                </p>
+            </td>
+            <td id="IgralnoPolje" width="40%" align="center"></td>
+        </tr>
+        <tr>
+            <td class="titleR">Racunalnik: </td>
+            <td class="titleI">Igralec: </td>
+        </tr>
+        <tr>
+            <td id="racunalnikPolje"></td>
+            <td id="izbranoPolje"></td>
+        </tr>
+
+        <tr>
+            <td class="btnsec"><input type="button" id="naprej" disabled="true" onclick="IzberiStevilko()" value="Generiraj Stevilo" class="buttons">
+                <input type="button" id="bingo" onclick="preveriBingo()" value="Bingo" class="buttons">
+            </td>
+            
+        </tr>
+    </table>
+
+    <audio id="myAudio">
+        <source src="audio.mp3" type="audio/mpeg">
+    </audio>
+</body>
+</html>
